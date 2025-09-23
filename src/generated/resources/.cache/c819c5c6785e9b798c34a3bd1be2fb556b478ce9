@@ -1,0 +1,11 @@
+// 1.20.1	2025-09-23T15:09:47.3008735	Registrate Provider for gtagriculture [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+816f002e9bc6c621dfa69cd28fd13d5557a7a943 assets/gtagriculture/lang/en_ud.json
+935e9a577f4c00fbe7a06e24274b91bd8834cc5f assets/gtagriculture/lang/en_us.json
+b62052f869e93ba9664549bd1bf0747d33f3064f assets/gtagriculture/models/item/chilly_pepper.json
+937d29f1e8053059d8988527274973db39e0391a assets/gtagriculture/models/item/cucumber.json
+cb417e79db3dd1aab1734716cd57571bafb9ada7 assets/gtagriculture/models/item/grape.json
+aee5a3129853aafd37a3db64b8d32ece7ebd7b54 assets/gtagriculture/models/item/lemon.json
+6e9a4f7553f6fa26f41bab635faebb5169867709 assets/gtagriculture/models/item/max_tomato.json
+21b9cc3cb98dbcbe129f33527c944aa0d0fd19e1 assets/gtagriculture/models/item/onion.json
+e46050340af304ebccb655e9893310a2a259c08b assets/gtagriculture/models/item/rape.json
+a26bd1c9f320f8d3c7f3f79ad4ac379df44fe50e assets/gtagriculture/models/item/tomato.json
