@@ -1,13 +1,15 @@
 {
-  "block.gtagriculture.chilly": "pǝǝS ɹǝddǝԀ",
-  "block.gtagriculture.grape": "ǝdɐɹ⅁",
-  "block.gtagriculture.grape.tooltip": "ǝuıM ɟo ǝɔɹnoSㄥ§",
-  "item.gtagriculture.chilly": "pǝǝS ɹǝddǝԀ",
+  "block.gtagriculture.chilly_pepper_seed": "ɹǝddǝԀ ʎןןıɥƆ",
+  "block.gtagriculture.grape_seed": "ǝdɐɹ⅁",
+  "block.gtagriculture.rape_seed": "ǝdɐᴚ",
   "item.gtagriculture.chilly_pepper": "ɹǝddǝԀ ʎןןıɥƆ",
   "item.gtagriculture.chilly_pepper.tooltip": "ʇoɥ puɐ pǝɹ sı ʇIㄥ§",
+  "item.gtagriculture.chilly_pepper_seed": "pǝǝS ɹǝddǝԀ ʎןןıɥƆ",
   "item.gtagriculture.cucumber": "ɹǝqɯnɔnƆ",
   "item.gtagriculture.cucumber.tooltip": "¡ɹǝqɯnɔnƆ ɐǝS ɐ ʇoNㄥ§",
   "item.gtagriculture.grape": "ǝdɐɹ⅁",
+  "item.gtagriculture.grape.tooltip": "ǝuıM ɟo ǝɔɹnoSㄥ§",
+  "item.gtagriculture.grape_seed": "pǝǝS ǝdɐɹ⅁",
   "item.gtagriculture.lemon": "uoɯǝꞀ",
   "item.gtagriculture.lemon.tooltip": "ǝpɐuoɯǝꞀ ǝʞɐɯ ʇ,uoᗡㄥ§",
   "item.gtagriculture.max_tomato": "oʇɐɯo⟘ xɐW",
@@ -16,6 +18,7 @@
   "item.gtagriculture.onion.tooltip": "ǝʇsɐ⟘ ǝןoɥʍ ǝɥʇ ɹǝʌo buıʞɐ⟘ㄥ§",
   "item.gtagriculture.rape": "ǝdɐᴚ",
   "item.gtagriculture.rape.tooltip": "¡dn ןıo oʇ ǝɯı⟘ㄥ§",
+  "item.gtagriculture.rape_seed": "pǝǝS ǝdɐᴚ",
   "item.gtagriculture.tomato": "oʇɐɯo⟘",
   "item.gtagriculture.tomato.tooltip": "dnɥɔʇǝʞ pıןoSㄥ§"
 }

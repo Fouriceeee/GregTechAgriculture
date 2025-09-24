@@ -1,20 +1,15 @@
 package com.ironsword.gtagriculture.common.registry;
 
 import com.gregtechceu.gtceu.api.item.ComponentItem;
-import com.gregtechceu.gtceu.api.item.IComponentItem;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.ironsword.gtagriculture.GTAgriculture;
 import com.ironsword.gtagriculture.Utils;
-import com.ironsword.gtagriculture.api.GTAItemEntry;
-import com.ironsword.gtagriculture.common.data.GTAItemEntries;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-
-import javax.swing.*;
 
 import static com.ironsword.gtagriculture.common.registry.GTARegistries.REGISTRATE;
 
@@ -28,10 +23,13 @@ public class GTAItems {
             LEMON = foodItemWithTooltip("lemon",1,0.3f),
             TOMATO = foodItemWithTooltip("tomato",1,0.2f),
             MAX_TOMATO = foodItemWithTooltip("max_tomato",9,1.0f),
-            //GRAPE = foodItemWithTooltip("grape",2,0.3f),
+            GRAPE = foodItemWithTooltip("grape",2,0.3f),
             ONION = foodItemWithTooltip("onion",2,0.2f),
             CUCUMBER = foodItemWithTooltip("cucumber",1,0.2f),
             RAPE = simpleTooltipItem("rape");
+
+    public static void init() {
+    }
 
     private static ItemEntry<ComponentItem> foodItemWithTooltip(String id,int nutrition, float saturation){
         return REGISTRATE.item(id,ComponentItem::create)
@@ -42,7 +40,7 @@ public class GTAItems {
                 .register();
     }
 
-    private static ItemEntry<ComponentItem> simpleTooltipItem(String id){
+    public static ItemEntry<ComponentItem> simpleTooltipItem(String id){
         return REGISTRATE.item(id,ComponentItem::create)
                 .lang(Utils.id2Name(id))
                 .onRegister(attach(new TooltipBehavior(tooltips -> tooltips.add(Component.translatable("item."+ GTAgriculture.MODID+"."+id+".tooltip")))))
@@ -61,6 +59,5 @@ public class GTAItems {
         return item -> item.attachComponents(components);
     }
 
-    public static void init() {
-    }
+
 }

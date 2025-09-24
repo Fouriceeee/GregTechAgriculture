@@ -16,7 +16,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "gtagriculture:chilly",
+                  "block": "gtagriculture:chilly_pepper_seed",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
@@ -27,7 +27,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "gtagriculture:chilly"
+              "name": "gtagriculture:chilly_pepper_seed"
             }
           ]
         }
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "gtagriculture:chilly",
+          "block": "gtagriculture:chilly_pepper_seed",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "7"
@@ -59,11 +59,11 @@
               }
             }
           ],
-          "name": "gtagriculture:chilly"
+          "name": "gtagriculture:chilly_pepper_seed"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gtagriculture:blocks/chilly"
+  "random_sequence": "gtagriculture:blocks/chilly_pepper_seed"
 }

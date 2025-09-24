@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "gtagriculture:block/chilly_pepper/stage_0"
+    },
+    "age=1": {
+      "model": "gtagriculture:block/chilly_pepper/stage_1"
+    },
+    "age=2": {
+      "model": "gtagriculture:block/chilly_pepper/stage_2"
+    },
+    "age=3": {
+      "model": "gtagriculture:block/chilly_pepper/stage_3"
+    },
+    "age=4": {
+      "model": "gtagriculture:block/chilly_pepper/stage_4"
+    },
+    "age=5": {
+      "model": "gtagriculture:block/chilly_pepper/stage_5"
+    },
+    "age=6": {
+      "model": "gtagriculture:block/chilly_pepper/stage_6"
+    },
+    "age=7": {
+      "model": "gtagriculture:block/chilly_pepper/stage_7"
+    }
+  }
+}

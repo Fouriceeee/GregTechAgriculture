@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/crop",
   "textures": {
-    "crop": "gtagriculture:block/chilly/stage_6"
+    "crop": "gtagriculture:block/chilly_pepper/stage_2"
   }
 }

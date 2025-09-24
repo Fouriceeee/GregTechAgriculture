@@ -1,10 +1,7 @@
 package com.ironsword.gtagriculture;
 
 import com.ironsword.gtagriculture.common.data.GTAItemEntries;
-import com.ironsword.gtagriculture.common.registry.GTABlocks;
-import com.ironsword.gtagriculture.common.registry.GTACreativeModeTabs;
-import com.ironsword.gtagriculture.common.registry.GTAItems;
-import com.ironsword.gtagriculture.common.registry.GTARegistries;
+import com.ironsword.gtagriculture.common.registry.*;
 import com.ironsword.gtagriculture.data.GTADategen;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;

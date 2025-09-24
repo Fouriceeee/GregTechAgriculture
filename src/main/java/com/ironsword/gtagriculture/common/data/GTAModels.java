@@ -11,11 +11,10 @@ import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.client.model.generators.ModelFile;
 
 public class GTAModels {
-    public static <T extends CropBlock> NonNullBiConsumer<DataGenContext<Block,T>, RegistrateBlockstateProvider> cropModel() {
+    public static <T extends CropBlock> NonNullBiConsumer<DataGenContext<Block,T>, RegistrateBlockstateProvider> cropModel(String name) {
         return (ctx,prov)->{
             prov.getVariantBuilder(ctx.getEntry())
                     .forAllStates(state -> {
-                        String name = ctx.getName();
                         int age = state.getValue(CropBlock.AGE);
                         ModelBuilder<?> model = prov.models().crop("block/%s/stage_%d".formatted(name,age),prov.modLoc("block/%s/stage_%d".formatted(name,age)));
 

@@ -1,13 +1,15 @@
 {
-  "block.gtagriculture.chilly": "Pepper Seed",
-  "block.gtagriculture.grape": "Grape",
-  "block.gtagriculture.grape.tooltip": "§7Source of Wine",
-  "item.gtagriculture.chilly": "Pepper Seed",
+  "block.gtagriculture.chilly_pepper_seed": "Chilly Pepper",
+  "block.gtagriculture.grape_seed": "Grape",
+  "block.gtagriculture.rape_seed": "Rape",
   "item.gtagriculture.chilly_pepper": "Chilly Pepper",
   "item.gtagriculture.chilly_pepper.tooltip": "§7It is red and hot",
+  "item.gtagriculture.chilly_pepper_seed": "Chilly Pepper Seed",
   "item.gtagriculture.cucumber": "Cucumber",
   "item.gtagriculture.cucumber.tooltip": "§7Not a Sea Cucumber!",
   "item.gtagriculture.grape": "Grape",
+  "item.gtagriculture.grape.tooltip": "§7Source of Wine",
+  "item.gtagriculture.grape_seed": "Grape Seed",
   "item.gtagriculture.lemon": "Lemon",
   "item.gtagriculture.lemon.tooltip": "§7Don't make Lemonade",
   "item.gtagriculture.max_tomato": "Max Tomato",
@@ -16,6 +18,7 @@
   "item.gtagriculture.onion.tooltip": "§7Taking over the whole Taste",
   "item.gtagriculture.rape": "Rape",
   "item.gtagriculture.rape.tooltip": "§7Time to oil up!",
+  "item.gtagriculture.rape_seed": "Rape Seed",
   "item.gtagriculture.tomato": "Tomato",
   "item.gtagriculture.tomato.tooltip": "§7Solid Ketchup"
 }
