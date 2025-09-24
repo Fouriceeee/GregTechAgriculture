@@ -16,12 +16,13 @@ public class LangHandler extends com.gregtechceu.gtceu.data.lang.LangHandler {
         provider.add(tooltipKey(GTAItems.LEMON),"§7Don't make Lemonade");
         provider.add(tooltipKey(GTAItems.TOMATO),"§7Solid Ketchup");
         provider.add(tooltipKey(GTAItems.MAX_TOMATO),"§7Full Health in one Tomato");
-        provider.add(tooltipKey(GTAItems.GRAPE),"§7Source of Wine");
         provider.add(tooltipKey(GTAItems.ONION),"§7Taking over the whole Taste");
         provider.add(tooltipKey(GTAItems.CUCUMBER),"§7Not a Sea Cucumber!");
         provider.add(tooltipKey(GTAItems.RAPE),"§7Time to oil up!");
+
+        provider.add("block.gtagriculture.grape.tooltip","§7Source of Wine");
     }
-    private static String tooltipKey(ItemEntry entry) {
+    public static String tooltipKey(ItemEntry entry) {
         return "item." + entry.getKey().location().toLanguageKey() + ".tooltip";
     }
 }

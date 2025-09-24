@@ -28,7 +28,7 @@ public class GTAItems {
             LEMON = foodItemWithTooltip("lemon",1,0.3f),
             TOMATO = foodItemWithTooltip("tomato",1,0.2f),
             MAX_TOMATO = foodItemWithTooltip("max_tomato",9,1.0f),
-            GRAPE = foodItemWithTooltip("grape",2,0.3f),
+            //GRAPE = foodItemWithTooltip("grape",2,0.3f),
             ONION = foodItemWithTooltip("onion",2,0.2f),
             CUCUMBER = foodItemWithTooltip("cucumber",1,0.2f),
             RAPE = simpleTooltipItem("rape");
