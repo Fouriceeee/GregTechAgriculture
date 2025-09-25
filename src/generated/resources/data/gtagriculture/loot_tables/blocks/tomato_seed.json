@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gtagriculture:grape_seed"
+          "name": "gtagriculture:tomato_seed"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "gtagriculture:blocks/grape_seed"
+  "random_sequence": "gtagriculture:blocks/tomato_seed"
 }

@@ -12,14 +12,14 @@ public class LangHandler extends com.gregtechceu.gtceu.data.lang.LangHandler {
     }
 
     private static void initItemTooltips(RegistrateLangProvider provider) {
-        provider.add(tooltipKey(GTAItems.CHILLY_PEPPER),"§7It is red and hot");
-        provider.add(tooltipKey(GTAItems.LEMON),"§7Don't make Lemonade");
-        provider.add(tooltipKey(GTAItems.TOMATO),"§7Solid Ketchup");
-        provider.add(tooltipKey(GTAItems.MAX_TOMATO),"§7Full Health in one Tomato");
-        provider.add(tooltipKey(GTAItems.GRAPE),"§7Source of Wine");
-        provider.add(tooltipKey(GTAItems.ONION),"§7Taking over the whole Taste");
-        provider.add(tooltipKey(GTAItems.CUCUMBER),"§7Not a Sea Cucumber!");
-        provider.add(tooltipKey(GTAItems.RAPE),"§7Time to oil up!");
+//        provider.add(tooltipKey(GTAItems.CHILLY_PEPPER),"§7It is red and hot");
+//        provider.add(tooltipKey(GTAItems.LEMON),"§7Don't make Lemonade");
+//        provider.add(tooltipKey(GTAItems.TOMATO),"§7Solid Ketchup");
+//        provider.add(tooltipKey(GTAItems.MAX_TOMATO),"§7Full Health in one Tomato");
+//        provider.add(tooltipKey(GTAItems.GRAPE),"§7Source of Wine");
+//        provider.add(tooltipKey(GTAItems.ONION),"§7Taking over the whole Taste");
+//        provider.add(tooltipKey(GTAItems.CUCUMBER),"§7Not a Sea Cucumber!");
+//        provider.add(tooltipKey(GTAItems.RAPE),"§7Time to oil up!");
 
     }
     public static String tooltipKey(ItemEntry entry) {

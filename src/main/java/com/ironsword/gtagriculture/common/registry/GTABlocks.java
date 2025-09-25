@@ -1,17 +1,23 @@
 package com.ironsword.gtagriculture.common.registry;
 
+import com.gregtechceu.gtceu.api.registry.registrate.GTBlockBuilder;
+import com.ironsword.gtagriculture.Utils;
 import com.ironsword.gtagriculture.common.block.GTACropBlock;
 import com.ironsword.gtagriculture.common.data.GTAModels;
 import com.ironsword.gtagriculture.common.data.GTAShapes;
+import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import static com.ironsword.gtagriculture.common.registry.GTARegistries.REGISTRATE;
 
@@ -20,102 +26,48 @@ public class GTABlocks {
         REGISTRATE.creativeModeTab(()->GTACreativeModeTabs.GTA_TAB);
     }
 
-    public static final BlockEntry<GTACropBlock> CHILLY_PEPPER_SEED = REGISTRATE.block("chilly_pepper_seed",p-> new GTACropBlock(p,GTAShapes.CROP))
-            .initialProperties(()->Blocks.WHEAT)
-            .lang("Chilly Pepper")
-            .blockstate(GTAModels.cropModel("chilly_pepper"))
-            .loot((table,block)->
-                    table.add(block,table.createCropDrops(
-                            block,
-                            GTAItems.CHILLY_PEPPER.asItem(),
-                            block.asItem(),
-                            LootItemBlockStatePropertyCondition
-                                    .hasBlockStateProperties(block)
-                                    .setProperties(StatePropertiesPredicate
-                                            .Builder
-                                            .properties()
-                                            .hasProperty(CropBlock.AGE,7))))
-            )
-            .addLayer(() -> RenderType::cutout)
-            .item(ItemNameBlockItem::new)
-            .defaultModel()
-            .lang("Chilly Pepper Seed")
-            .build()
-            .register();
+    public static final BlockEntry<GTACropBlock> CHILL_PEPPER_SEED = cropWithSeed("chilly_pepper");
+    public static final BlockEntry<GTACropBlock> GRAPE_SEED = cropWithSeed("grape");
+    public static final BlockEntry<GTACropBlock> RAPE_SEED = cropWithSeed("rape");
+    public static final BlockEntry<GTACropBlock> TOMATO_SEED = cropWithSeed("tomato");
 
-    public static final BlockEntry<GTACropBlock> GRAPE_SEED = REGISTRATE.block("grape_seed",p->new GTACropBlock(p,GTAShapes.CROP))
-            .initialProperties(()->Blocks.WHEAT)
-            .lang("Grape")
-            .blockstate(GTAModels.cropModel("grape"))
-            .loot((table,block)->
-                    table.add(block,table.createCropDrops(
-                            block,
-                            GTAItems.GRAPE.asItem(),
-                            block.asItem(),
-                            LootItemBlockStatePropertyCondition
-                                    .hasBlockStateProperties(block)
-                                    .setProperties(StatePropertiesPredicate
-                                            .Builder
-                                            .properties()
-                                            .hasProperty(CropBlock.AGE,7))))
-            )
-            .addLayer(() -> RenderType::cutout)
-            .item(ItemNameBlockItem::new)
-            .defaultModel()
-            .lang("Grape Seed")
-            .build()
-            .register();
+    private static BlockEntry<GTACropBlock> cropWithSeed(String cropName){
+        String id = cropName + "_seed";
+        return cropWithSeed(id, Utils.id2Name(cropName),Utils.id2Name(id),cropName);
+    }
 
-    public static final BlockEntry<GTACropBlock> RAPE_SEED = REGISTRATE.block("rape_seed",p-> new GTACropBlock(p,GTAShapes.CROP))
-            .initialProperties(()->Blocks.WHEAT)
-            .lang("Rape")
-            .blockstate(GTAModels.cropModel("rape"))
-            .loot((table,block)->
-                    table.add(block,table.createCropDrops(
-                            block,
-                            GTAItems.RAPE.asItem(),
-                            block.asItem(),
-                            LootItemBlockStatePropertyCondition
-                                    .hasBlockStateProperties(block)
-                                    .setProperties(StatePropertiesPredicate
-                                            .Builder
-                                            .properties()
-                                            .hasProperty(CropBlock.AGE,7))))
-            )
-            .addLayer(() -> RenderType::cutout)
-            .item(ItemNameBlockItem::new)
-            .defaultModel()
-            .lang("Rape Seed")
-            .build()
-            .register();
+    private static BlockEntry<GTACropBlock> cropWithSeed(String blockId, String blockName, String itemName, String texture) {
+        return cropWithSeed(blockId,blockName,itemName,texture,GTAShapes.CROP);
+    }
 
-    //不知道为啥，这样写就是不行
-    /*
-    private BlockEntry<GTACropBlock> cropWithSeed(String blockId, String blockName, Item cropItem, String seedName, String texture, VoxelShape[] shape) {
+    private static BlockEntry<GTACropBlock> cropWithSeed(String blockId, String blockName, String itemName, String texture, VoxelShape[] shape) {
         return REGISTRATE.block(blockId,p-> new GTACropBlock(p,shape))
                 .initialProperties(()-> Blocks.WHEAT)
                 .lang(blockName)
                 .blockstate(GTAModels.cropModel(texture))
-                .loot((table,block)->
-                        table.add(block,table.createCropDrops(
-                                block,
-                                cropItem,
-                                block.asItem(),
-                                LootItemBlockStatePropertyCondition
-                                        .hasBlockStateProperties(block)
-                                        .setProperties(StatePropertiesPredicate
-                                                .Builder
-                                                .properties()
-                                                .hasProperty(CropBlock.AGE,7))))
-                )
                 .addLayer(() -> RenderType::cutout)
                 .item(ItemNameBlockItem::new)
                 .defaultModel()
-                .lang(seedName)
+                .lang(itemName)
                 .build()
                 .register();
     }
-    */
+
+    private static BlockEntry<GTACropBlock> test(String blockId, String blockName, String itemName,String texture,VoxelShape[] shape, Item cropItem ) {
+        return REGISTRATE.block(blockId,p-> new GTACropBlock(p,shape))
+                .initialProperties(()-> Blocks.WHEAT)
+                .lang(blockName)
+                .blockstate(GTAModels.cropModel(texture))
+                .addLayer(() -> RenderType::cutout)
+                .item(ItemNameBlockItem::new)
+                .defaultModel()
+                .lang(itemName)
+                .build()
+                .onRegisterAfter(ForgeRegistries.Keys.ITEMS,block->{
+                })
+
+                .register();
+    }
 
     public static void init(){
     }

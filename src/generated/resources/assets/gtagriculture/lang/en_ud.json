@@ -2,6 +2,7 @@
   "block.gtagriculture.chilly_pepper_seed": "ɹǝddǝԀ ʎןןıɥƆ",
   "block.gtagriculture.grape_seed": "ǝdɐɹ⅁",
   "block.gtagriculture.rape_seed": "ǝdɐᴚ",
+  "block.gtagriculture.tomato_seed": "oʇɐɯo⟘",
   "item.gtagriculture.chilly_pepper": "ɹǝddǝԀ ʎןןıɥƆ",
   "item.gtagriculture.chilly_pepper.tooltip": "ʇoɥ puɐ pǝɹ sı ʇIㄥ§",
   "item.gtagriculture.chilly_pepper_seed": "pǝǝS ɹǝddǝԀ ʎןןıɥƆ",
@@ -20,5 +21,6 @@
   "item.gtagriculture.rape.tooltip": "¡dn ןıo oʇ ǝɯı⟘ㄥ§",
   "item.gtagriculture.rape_seed": "pǝǝS ǝdɐᴚ",
   "item.gtagriculture.tomato": "oʇɐɯo⟘",
-  "item.gtagriculture.tomato.tooltip": "dnɥɔʇǝʞ pıןoSㄥ§"
+  "item.gtagriculture.tomato.tooltip": "dnɥɔʇǝʞ pıןoSㄥ§",
+  "item.gtagriculture.tomato_seed": "pǝǝS oʇɐɯo⟘"
 }
