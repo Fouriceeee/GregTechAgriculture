@@ -2,7 +2,7 @@ package com.ironsword.gtagriculture.common.registry;
 
 import com.gregtechceu.gtceu.common.data.GTCreativeModeTabs;
 import com.ironsword.gtagriculture.GTAgriculture;
-import com.ironsword.gtagriculture.common.data.GTAItemEntries;
+import com.ironsword.gtagriculture.common.data.GTAItems;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

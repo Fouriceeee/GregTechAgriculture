@@ -1,14 +1,13 @@
 package com.ironsword.gtagriculture.data.loot;
 
 import com.ironsword.gtagriculture.common.block.GTACropBlock;
-import com.ironsword.gtagriculture.common.registry.GTABlocks;
-import com.ironsword.gtagriculture.common.registry.GTAItems;
+import com.ironsword.gtagriculture.common.data.GTABlocks;
+import com.ironsword.gtagriculture.common.data.GTAItems;
 import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.providers.loot.RegistrateLootTableProvider;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 

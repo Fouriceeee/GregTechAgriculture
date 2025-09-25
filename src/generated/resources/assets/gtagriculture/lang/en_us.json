@@ -2,6 +2,7 @@
   "block.gtagriculture.chilly_pepper_seed": "Chilly Pepper",
   "block.gtagriculture.grape_seed": "Grape",
   "block.gtagriculture.rape_seed": "Rape",
+  "block.gtagriculture.test_berry_bush": "Test Berry Bush",
   "block.gtagriculture.tomato_seed": "Tomato",
   "item.gtagriculture.chilly_pepper": "Chilly Pepper",
   "item.gtagriculture.chilly_pepper.tooltip": "§7It is red and hot",
@@ -20,6 +21,7 @@
   "item.gtagriculture.rape": "Rape",
   "item.gtagriculture.rape.tooltip": "§7Time to oil up!",
   "item.gtagriculture.rape_seed": "Rape Seed",
+  "item.gtagriculture.test_berry": "Test Berry",
   "item.gtagriculture.tomato": "Tomato",
   "item.gtagriculture.tomato.tooltip": "§7Solid Ketchup",
   "item.gtagriculture.tomato_seed": "Tomato Seed"

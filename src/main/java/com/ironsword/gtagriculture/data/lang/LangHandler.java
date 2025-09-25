@@ -1,8 +1,5 @@
 package com.ironsword.gtagriculture.data.lang;
 
-import com.gregtechceu.gtceu.data.lang.ItemLang;
-import com.ironsword.gtagriculture.GTAgriculture;
-import com.ironsword.gtagriculture.common.registry.GTAItems;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
 

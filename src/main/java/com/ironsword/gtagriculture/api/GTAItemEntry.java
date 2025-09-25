@@ -1,12 +1,7 @@
 package com.ironsword.gtagriculture.api;
 
-import com.gregtechceu.gtceu.api.registry.registrate.GTRegistrate;
-import com.ironsword.gtagriculture.GTAgriculture;
 import com.ironsword.gtagriculture.Utils;
-import com.ironsword.gtagriculture.common.registry.GTAItems;
-import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import com.tterrag.registrate.util.nullness.NonNullFunction;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.world.food.FoodProperties;

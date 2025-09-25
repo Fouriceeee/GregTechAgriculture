@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "gtagriculture:block/test_berry_bush/stage_0"
+  }
+}
