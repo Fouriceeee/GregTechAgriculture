@@ -33,7 +33,7 @@ public class GTABlocks {
             .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(), block->block.attachBerryItem(GTAItems.TEST_BERRY.get()))
             .item(BlockItem::new)
             .model((ctx,prov)->
-                            prov.withExistingParent("item/test_berry_bush",prov.modLoc("block/test_berry_bush/stage_0/up")))
+                            prov.withExistingParent("item/test_berry_bush",prov.modLoc("block/test_berry_bush/stage_0/down")))
             .build()
             .register();
 

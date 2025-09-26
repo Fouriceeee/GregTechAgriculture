@@ -28,19 +28,6 @@ public class GTAModels {
                     });
     }
 
-    public static <T extends BerryBushBlock> NonNullBiConsumer<DataGenContext<Block,T>, RegistrateBlockstateProvider> berryBushModel(String name) {
-        return (ctx,prov)->
-                prov.getVariantBuilder(ctx.getEntry())
-                        .forAllStates(state -> {
-                            int age = state.getValue(BerryBushBlock.AGE);
-                            ModelBuilder<?> model = prov.models().cubeAll("block/%s/stage_%d".formatted(name,age),prov.modLoc("block/%s/stage_%d".formatted(name,age)));
-
-                            return ConfiguredModel.builder()
-                                    .modelFile(model)
-                                    .build();
-                        });
-    }
-
     public static <T extends BerryBushBlock> NonNullBiConsumer<DataGenContext<Block,T>, RegistrateBlockstateProvider> tberryBushModel(String name) {
         return (ctx,prov)->
                 prov.getVariantBuilder(ctx.getEntry())
@@ -51,8 +38,14 @@ public class GTAModels {
                         });
     }
 
-    public static <T extends Item> NonNullBiConsumer<DataGenContext<Item, T>, RegistrateItemModelProvider> stageBlockItemModel(){
+    public static <T extends BerryBushBlock> NonNullBiConsumer<DataGenContext<Block,T>, RegistrateBlockstateProvider> berryBushModel(String name) {
         return (ctx,prov)->
-                prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0".formatted(ctx.getName())));
+                prov.getVariantBuilder(ctx.getEntry())
+                        .forAllStates(state -> {
+                            int age = state.getValue(BerryBushBlock.AGE);
+                            Direction direction = state.getValue(BerryBushBlock.FACING);
+                            return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(prov.modLoc("block/%s/stage_%d/%s".formatted(name,age,direction.getName())))).build();
+                        });
     }
+
 }

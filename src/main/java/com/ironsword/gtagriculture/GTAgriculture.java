@@ -15,6 +15,7 @@ public class GTAgriculture
     public static final String MODID = "gtagriculture";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    @SuppressWarnings("unused")
     public GTAgriculture()
     {
         GTAgriculture.init();

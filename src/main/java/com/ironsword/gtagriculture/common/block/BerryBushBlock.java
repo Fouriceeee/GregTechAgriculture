@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -54,7 +55,7 @@ public class BerryBushBlock extends DirectionalBlock implements BonemealableBloc
 
     public BerryBushBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(FACING, Direction.UP));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(FACING, Direction.DOWN));
     }
 
     public void attachBerryItem(Item berry) {
@@ -72,60 +73,64 @@ public class BerryBushBlock extends DirectionalBlock implements BonemealableBloc
         return AABBS.get(state.getValue(FACING));
     }
 
-    //    @Override
-//    protected ImmutableMap<BlockState, VoxelShape> getShapeForEachState(Function<BlockState, VoxelShape> shapeGetter) {
-//        return super.getShapeForEachState(shapeGetter);
-//    }
-
-
-//    @Override
-//    public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-//        BlockState blockState = this.defaultBlockState();
-//        LevelReader levelReader = context.getLevel();
-//        BlockPos blockPos = context.getClickedPos();
-//        Direction[] directions = context.getNearestLookingDirections();
-//
-//        for(Direction direction : directions) {
-//            if (levelReader.getBlockState(blockPos).getBlock() == this) {
-//
-//            }else {
-//                if (blockState.canSurvive(levelReader, blockPos)) {
-//                    return blockState;
-//                }
-//            }
-//
-//
-//
-//            blockState = direction == Direction.DOWN ? blockState : blockState.setValue(FACING,direction.getOpposite());
-//            if (blockState.canSurvive(levelReader, blockPos)) {
-//                return blockState;
-//            }
-//
-//            if (direction.getAxis().isHorizontal()) {
-//                Direction direction2 = direction.getOpposite();
-//                blockState = blockState.setValue(FACING, direction2);
-//                if (blockState.canSurvive(levelReader, blockPos)) {
-//                    return blockState;
-//                }
-//            }
-//        }
-//
-//        return null;
-//    }
-
-    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
-        return state.is(BlockTags.DIRT) || state.is(Blocks.FARMLAND) || state.getBlock() == this;
-    }
-
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
         return !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 
+    //    @Override
+//    protected ImmutableMap<BlockState, VoxelShape> getShapeForEachState(Function<BlockState, VoxelShape> shapeGetter) {
+//        return super.getShapeForEachState(shapeGetter);
+//    }
+
+    @Override
+    public @Nullable BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        BlockState blockState = this.defaultBlockState();
+        Level level = ctx.getLevel();
+        BlockPos blockPos = ctx.getClickedPos();
+
+        for (Direction direction:ctx.getNearestLookingDirections()){
+            if (direction.getAxis().isHorizontal()) {
+                blockState = blockState.setValue(FACING,direction);
+                if (blockState.canSurvive(level,blockPos)){
+                    return blockState;
+                }
+            }else if (direction == Direction.DOWN) {
+                blockState = mayAttachOn(level.getBlockState(blockPos.below())) ? blockState.setValue(FACING,Direction.UP) : blockState;
+                if (blockState.canSurvive(level,blockPos)){
+                    return blockState;
+                }
+            }
+        }
+
+        return null;
+    }
+
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        BlockPos blockpos = pos.below();
-        return state.getBlock() == this ? level.getBlockState(blockpos).canSustainPlant(level, blockpos, Direction.UP, this) : this.mayPlaceOn(level.getBlockState(blockpos), level, blockpos);
+        Direction direction = state.getValue(FACING);
+        if (state.getBlock() == this) {
+            if (direction.getAxis().isHorizontal()) {
+                BlockState blockState = level.getBlockState(pos.relative(direction));
+                return mayAttachOn(blockState);
+            }else{
+                BlockState blockState1 = level.getBlockState(pos.below());
+                if (direction == Direction.DOWN) {
+                    return mayPlaceOn(blockState1);
+                }else if (direction == Direction.UP) {
+                    return mayAttachOn(blockState1);
+                }
+            }
+        }
+        return false;
+    }
+
+    protected boolean mayPlaceOn(BlockState state) {
+        return state.is(BlockTags.DIRT) || state.is(Blocks.FARMLAND);
+    }
+
+    protected boolean mayAttachOn(BlockState state){
+        return state.getBlock() == this && state.getValue(FACING) == Direction.DOWN;
     }
 
     @Override
@@ -137,7 +142,7 @@ public class BerryBushBlock extends DirectionalBlock implements BonemealableBloc
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         int i = state.getValue(AGE);
         if (i < MAX_AGE && level.getRawBrightness(pos.above(), 0) >= 9 && ForgeHooks.onCropsGrowPre(level, pos, state, random.nextInt(5) == 0)) {
-            BlockState blockstate = (BlockState)state.setValue(AGE, i + 1);
+            BlockState blockstate = state.setValue(AGE, i + 1);
             level.setBlock(pos, blockstate, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockstate));
             ForgeHooks.onCropsGrowPost(level, pos, state);
@@ -146,7 +151,7 @@ public class BerryBushBlock extends DirectionalBlock implements BonemealableBloc
 
     @Override
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
-        if (state.getValue(FACING) == Direction.UP && entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
+        if (state.getValue(FACING) == Direction.DOWN && entity instanceof LivingEntity && entity.getType() != EntityType.FOX && entity.getType() != EntityType.BEE) {
             entity.makeStuckInBlock(state, new Vec3(0.8F, 0.75F, 0.8F));
         }
     }
@@ -207,8 +212,8 @@ public class BerryBushBlock extends DirectionalBlock implements BonemealableBloc
     static {
         AGE = BlockStateProperties.AGE_2;
         AABBS = Maps.newEnumMap(ImmutableMap.of(
-                Direction.UP, Shapes.block(),
-                Direction.DOWN,Block.box(2.0,0.0,2.0,14.0, 4.0, 14.0),
+                Direction.DOWN, Shapes.block(),
+                Direction.UP,Block.box(2.0,0.0,2.0,14.0, 4.0, 14.0),
                 Direction.NORTH,Block.box(2.0,2.0,0.0,14.0, 14.0, 4.0),
                 Direction.SOUTH,Block.box(2.0,2.0,12.0,14.0, 14.0, 16.0),
                 Direction.EAST,Block.box(12.0,2.0,2.0,16.0,14.0,14.0),
