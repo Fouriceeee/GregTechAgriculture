@@ -1,13 +1,10 @@
 package com.ironsword.gtagriculture.common.data;
 
-import com.gregtechceu.gtceu.common.block.LampBlock;
 import com.ironsword.gtagriculture.common.block.BerryBushBlock;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
-import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.ConfiguredModel;

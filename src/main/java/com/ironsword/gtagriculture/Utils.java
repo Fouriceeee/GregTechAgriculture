@@ -1,7 +1,5 @@
 package com.ironsword.gtagriculture;
 
-import com.tterrag.registrate.util.entry.ItemEntry;
-
 public class Utils {
     public static String id2Name(String id) {
         StringBuilder builder = new StringBuilder();
