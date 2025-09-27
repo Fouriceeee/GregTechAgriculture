@@ -1,8 +1,10 @@
 {
   "block.gtagriculture.chilly_pepper_seed": "Chilly Pepper",
   "block.gtagriculture.grape_seed": "Grape",
+  "block.gtagriculture.lemon_berry_bush": "Lemon Berry Bush",
   "block.gtagriculture.rape_seed": "Rape",
   "block.gtagriculture.test_berry_bush": "Test Berry Bush",
+  "block.gtagriculture.tomato_berry_bush": "Tomato Berry Bush",
   "block.gtagriculture.tomato_seed": "Tomato",
   "item.gtagriculture.chilly_pepper": "Chilly Pepper",
   "item.gtagriculture.chilly_pepper.tooltip": "§7It is red and hot",

@@ -41,7 +41,12 @@ public class GTAModels {
                         .forAllStates(state -> {
                             int age = state.getValue(BerryBushBlock.AGE);
                             Direction direction = state.getValue(BerryBushBlock.FACING);
-                            return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(prov.modLoc("block/%s/stage_%d/%s".formatted(name,age,direction.getName())))).build();
+
+                            ModelFile parent = prov.models().getExistingFile(prov.modLoc("block/berry_bush/stage_%d/%s".formatted(age,direction.getName())));
+                            ModelBuilder<?> model = prov.models().getBuilder("block/%s/stage_%d/%s".formatted(ctx.getName(),age,direction.getName())).parent(parent);
+                            model.texture("stage_%d".formatted(age),"block/%s/stage_%d".formatted(name,age));
+
+                            return ConfiguredModel.builder().modelFile(model).build();
                         });
     }
 

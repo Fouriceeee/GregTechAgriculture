@@ -27,13 +27,37 @@ public class GTABlocks {
 
     public static final BlockEntry<BerryBushBlock> TEST_BERRY_BUSH = REGISTRATE.block("test_berry_bush",BerryBushBlock::new)
             .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
-            .blockstate(GTAModels.tberryBushModel("test_berry_bush"))
+            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
             .addLayer(() -> RenderType::cutout)
             .lang("Test Berry Bush")
             .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(), block->block.attachBerryItem(GTAItems.TEST_BERRY.get()))
             .item(BlockItem::new)
             .model((ctx,prov)->
                             prov.withExistingParent("item/test_berry_bush",prov.modLoc("block/test_berry_bush/stage_0/down")))
+            .build()
+            .register();
+
+    public static final BlockEntry<BerryBushBlock> LEMON_BERRY_BUSH = REGISTRATE.block("lemon_berry_bush",BerryBushBlock::new)
+            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
+            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
+            .addLayer(()->RenderType::cutout)
+            .lang("Lemon Berry Bush")
+            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block-> block.attachBerryItem(GTAItems.LEMON.get()))
+            .item(BlockItem::new)
+            .model((ctx,prov)->
+                    prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0/down".formatted(ctx.getName()))))
+            .build()
+            .register();
+
+    public static final BlockEntry<BerryBushBlock> TOMATO_BERRY_BUSH = REGISTRATE.block("tomato_berry_bush",BerryBushBlock::new)
+            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
+            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
+            .addLayer(()->RenderType::cutout)
+            .lang("Tomato Berry Bush")
+            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block-> block.attachBerryItem(GTAItems.TOMATO.get()))
+            .item(BlockItem::new)
+            .model((ctx,prov)->
+                    prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0/down".formatted(ctx.getName()))))
             .build()
             .register();
 
@@ -44,11 +68,7 @@ public class GTABlocks {
     }
 
     private static BlockEntry<GTACropBlock> cropWithSeed(String blockId, String blockName, String itemName, String texture) {
-        return cropWithSeed(blockId,blockName,itemName,texture,GTAShapes.CROP);
-    }
-
-    private static BlockEntry<GTACropBlock> cropWithSeed(String blockId, String blockName, String itemName, String texture, VoxelShape[] shape) {
-        return REGISTRATE.block(blockId,p-> new GTACropBlock(p,shape))
+        return REGISTRATE.block(blockId,GTACropBlock::new)
                 .initialProperties(()-> Blocks.WHEAT)
                 .lang(blockName)
                 .blockstate(GTAModels.cropModel(texture))
@@ -60,8 +80,23 @@ public class GTABlocks {
                 .register();
     }
 
-    private static BlockEntry<GTACropBlock> test(String blockId, String blockName, String itemName,String texture,VoxelShape[] shape, Item cropItem ) {
-        return REGISTRATE.block(blockId,p-> new GTACropBlock(p,shape))
+    //ERROR
+    private static BlockEntry<BerryBushBlock> berryBushBlock(String blockId,String blockName,String texture){
+        return REGISTRATE.block(blockId,BerryBushBlock::new)
+                .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
+                .blockstate(GTAModels.berryBushModel(texture))
+                .addLayer(()->RenderType::cutout)
+                .lang(blockName)
+                //.onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block->block.attachBerryItem(berry))
+                .item(BlockItem::new)
+                .model((ctx,prov)->
+                        prov.withExistingParent("item/%s".formatted(blockId),prov.modLoc("block/%s/stage_0/down".formatted(blockId))))
+                .build()
+                .register();
+    }
+
+    private static BlockEntry<GTACropBlock> testCropWithSeed(String blockId, String blockName, String itemName,String texture, Item cropItem ) {
+        return REGISTRATE.block(blockId,GTACropBlock::new)
                 .initialProperties(()-> Blocks.WHEAT)
                 .lang(blockName)
                 .blockstate(GTAModels.cropModel(texture))
