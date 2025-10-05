@@ -1,10 +1,14 @@
 package com.ironsword.gtagriculture.common.data;
 
 import com.gregtechceu.gtceu.api.item.ComponentItem;
+import com.gregtechceu.gtceu.api.item.component.FoodStats;
 import com.gregtechceu.gtceu.api.item.component.IItemComponent;
 import com.gregtechceu.gtceu.common.item.TooltipBehavior;
 import com.ironsword.gtagriculture.GTAgriculture;
 import com.ironsword.gtagriculture.Utils;
+import com.ironsword.gtagriculture.api.item.component.FoodNutrients;
+import com.ironsword.gtagriculture.common.item.GTAFoodItem;
+import com.ironsword.gtagriculture.api.item.component.GTAFoodStats;
 import com.ironsword.gtagriculture.common.item.TooltipItem;
 import com.ironsword.gtagriculture.common.registry.GTACreativeModeTabs;
 import com.tterrag.registrate.providers.ProviderType;
@@ -34,6 +38,19 @@ public class GTAItems {
     public static final ItemEntry<Item> TEST_BERRY = REGISTRATE.item("test_berry",Item::new)
             .defaultModel()
             .lang("Test Berry")
+            .register();
+
+    public static final ItemEntry<GTAFoodItem> TEST = REGISTRATE.item("test", GTAFoodItem::create)
+            .defaultModel()
+            .lang("Test")
+            .onRegister(attach(new GTAFoodStats(1,0.5f)))
+            .register();
+
+    public static final ItemEntry<ComponentItem> TEST_2 = REGISTRATE.item("test_2",ComponentItem::create)
+            .defaultModel()
+            .lang("Test 2")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(4).saturationMod(0.5f).build())))
+            .onRegister(attach(new FoodNutrients().addNutrient(GTANutrients.ALCOHOL,2)))
             .register();
 
     public static void init() {

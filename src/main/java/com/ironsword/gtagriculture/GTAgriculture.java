@@ -1,11 +1,16 @@
 package com.ironsword.gtagriculture;
 
+import com.gregtechceu.gtceu.api.capability.forge.GTCapability;
+import com.ironsword.gtagriculture.api.capability.forge.GTACapability;
 import com.ironsword.gtagriculture.common.data.GTABlocks;
+import com.ironsword.gtagriculture.common.data.GTACommandArguments;
 import com.ironsword.gtagriculture.common.data.GTAItems;
 import com.ironsword.gtagriculture.common.registry.GTACreativeModeTabs;
 import com.ironsword.gtagriculture.common.registry.GTARegistries;
 import com.ironsword.gtagriculture.data.GTADategen;
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
@@ -22,6 +27,7 @@ public class GTAgriculture
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.register(this);
 
+        GTACommandArguments.init(bus);
     }
 
     private static void init() {
@@ -30,7 +36,11 @@ public class GTAgriculture
         GTABlocks.init();
         GTADategen.init();
         GTARegistries.REGISTRATE.registerRegistrate();
+
     }
 
-
+    @SubscribeEvent
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
+        GTACapability.register(event);
+    }
 }
