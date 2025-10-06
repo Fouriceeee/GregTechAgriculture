@@ -40,17 +40,46 @@ public class GTAItems {
             .lang("Test Berry")
             .register();
 
-    public static final ItemEntry<GTAFoodItem> TEST = REGISTRATE.item("test", GTAFoodItem::create)
+    public static final ItemEntry<ComponentItem> ALCOHOL_ITEM = REGISTRATE.item("alcohol_test_item",ComponentItem::create)
             .defaultModel()
-            .lang("Test")
-            .onRegister(attach(new GTAFoodStats(1,0.5f)))
+            .lang("Alcohol Test Item")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(1).saturationMod(1.0f).build())))
+            .onRegister(attach(new FoodNutrients().nutrient(GTANutrients.ALCOHOL,1)))
             .register();
 
-    public static final ItemEntry<ComponentItem> TEST_2 = REGISTRATE.item("test_2",ComponentItem::create)
+    public static final ItemEntry<ComponentItem> CAFFEINE_ITEM = REGISTRATE.item("caffeine_test_item",ComponentItem::create)
             .defaultModel()
-            .lang("Test 2")
-            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(4).saturationMod(0.5f).build())))
-            .onRegister(attach(new FoodNutrients().addNutrient(GTANutrients.ALCOHOL,2)))
+            .lang("Caffeine Test Item")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(1).saturationMod(1.0f).build())))
+            .onRegister(attach(new FoodNutrients().nutrient(GTANutrients.CAFFEINE,1)))
+            .register();
+
+    public static final ItemEntry<ComponentItem> DEHYDRATION_ITEM = REGISTRATE.item("dehydration_test_item",ComponentItem::create)
+            .defaultModel()
+            .lang("Dehydration Test Item")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(1).saturationMod(1.0f).build())))
+            .onRegister(attach(new FoodNutrients().nutrient(GTANutrients.DEHYDRATION,1)))
+            .register();
+
+    public static final ItemEntry<ComponentItem> SUGAR_ITEM = REGISTRATE.item("sugar_test_item",ComponentItem::create)
+            .defaultModel()
+            .lang("Sugar Test Item")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(1).saturationMod(1.0f).build())))
+            .onRegister(attach(new FoodNutrients().nutrient(GTANutrients.SUGAR,1)))
+            .register();
+
+    public static final ItemEntry<ComponentItem> FAT_ITEM = REGISTRATE.item("fat_test_item",ComponentItem::create)
+            .defaultModel()
+            .lang("Fat Test Item")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(1).saturationMod(1.0f).build())))
+            .onRegister(attach(new FoodNutrients().nutrient(GTANutrients.FAT,1)))
+            .register();
+
+    public static final ItemEntry<ComponentItem> RADIATION_ITEM = REGISTRATE.item("radiation_test_item",ComponentItem::create)
+            .defaultModel()
+            .lang("Radiation Test Item")
+            .onRegister(attach(new FoodStats(new FoodProperties.Builder().nutrition(1).saturationMod(1.0f).build())))
+            .onRegister(attach(new FoodNutrients().nutrient(GTANutrients.RADIATION,1)))
             .register();
 
     public static void init() {

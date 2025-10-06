@@ -16,7 +16,9 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -51,5 +53,19 @@ public class ForgeCommonEventListener {
     @SubscribeEvent
     public static void registerCommands(RegisterCommandsEvent event){
         NutrientCommands.register(event.getDispatcher(),event.getBuildContext());
+    }
+
+    @SubscribeEvent
+    public static void tickPlayerNutrientEffect(TickEvent.PlayerTickEvent event){
+        if (event.side == LogicalSide.CLIENT || event.phase != TickEvent.Phase.END) return;
+
+        Player player = event.player;
+
+        if (player.level().getGameTime() % 50 == 0){
+            NutrientTracker tracker = GTACapability.getNutrientTracker(player);
+            if (tracker == null) return;
+            tracker.tick();
+        }
+
     }
 }

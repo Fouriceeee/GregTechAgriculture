@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gtagriculture:item/dehydration_test_item"
+  }
+}

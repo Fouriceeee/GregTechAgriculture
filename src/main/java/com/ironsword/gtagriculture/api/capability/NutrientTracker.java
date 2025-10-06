@@ -21,14 +21,18 @@ public class NutrientTracker implements INBTSerializable<CompoundTag>{
     }
 
     public void tick(){
+        if (player.isCreative()) return;
 
+        for (Nutrient nutrient: nutrients.keySet()){
+            nutrient.applyEffect(player,nutrients.getInt(nutrient));
+        }
     }
 
-    public void changeNutrient(@NotNull Nutrient nutrient,int amount) {
+    public void gain(@NotNull Nutrient nutrient, int amount) {
         nutrients.put(nutrient,nutrients.getOrDefault(nutrient,0)+amount);
     }
 
-    public void removeNutrient(Nutrient nutrient) {
+    public void remove(Nutrient nutrient) {
         nutrients.remove(nutrient);
     }
 

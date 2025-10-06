@@ -1,7 +1,6 @@
 package com.ironsword.gtagriculture.common.command;
 
 import com.ironsword.gtagriculture.api.capability.NutrientTracker;
-import com.ironsword.gtagriculture.api.capability.forge.GTACapability;
 import com.ironsword.gtagriculture.api.data.nutrient.Nutrient;
 import com.ironsword.gtagriculture.common.command.arguments.NutrientArgument;
 import com.mojang.brigadier.CommandDispatcher;
@@ -13,14 +12,13 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.Collections;
 
 import static net.minecraft.commands.Commands.*;
+import static com.ironsword.gtagriculture.api.capability.forge.GTACapability.getNutrientTracker;
 
 public class NutrientCommands {
     private static final SimpleCommandExceptionType ERROR_GIVE_FAILED = new SimpleCommandExceptionType(
@@ -110,11 +108,11 @@ public class NutrientCommands {
             if (nutrient == null){
                 count+=tracker.getNutrients().keySet().size();
                 for (Nutrient nutrient1: tracker.getNutrients().keySet()){
-                    tracker.removeNutrient(nutrient1);
+                    tracker.remove(nutrient1);
                 }
             }else {
                 count++;
-                tracker.removeNutrient(nutrient);
+                tracker.remove(nutrient);
             }
         }
         if (count==0){
@@ -130,16 +128,12 @@ public class NutrientCommands {
             if (tracker == null) {
                 continue;
             }
-            tracker.changeNutrient(nutrient,amount);
+            tracker.gain(nutrient,amount);
             success++;
         }
         if (success == 0){
             throw ERROR_GIVE_FAILED.create();
         }
         return success;
-    }
-
-    private static NutrientTracker getNutrientTracker(@NotNull Entity entity) {
-        return entity.getCapability(GTACapability.CAPABILITY_NUTRIENT_TRACKER,null).resolve().orElse(null);
     }
 }
