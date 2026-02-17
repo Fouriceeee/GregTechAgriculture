@@ -20,6 +20,7 @@ import java.util.List;
 public class FoodNutrients implements IAddInformation, IInteractionItem {
     protected final Object2IntMap<Nutrient> nutrients = new Object2IntOpenHashMap<>();
 
+
     public FoodNutrients() {
     }
 
@@ -41,8 +42,21 @@ public class FoodNutrients implements IAddInformation, IInteractionItem {
         return IInteractionItem.super.finishUsingItem(stack, level, livingEntity);
     }
 
-    public FoodNutrients nutrient(Nutrient nutrient, int amount) {
-        nutrients.put(nutrient,amount);
+    public FoodNutrients nutrient(Nutrient n1, int a1) {
+        nutrients.put(n1,a1);
+        return this;
+    }
+
+    public FoodNutrients nutrient(Nutrient n1, int a1,Nutrient n2,int a2) {
+        nutrients.put(n1,a1);
+        nutrients.put(n2,a2);
+        return this;
+    }
+
+    public FoodNutrients nutrient(Nutrient n1, int a1,Nutrient n2,int a2,Nutrient n3,int a3) {
+        nutrients.put(n1,a1);
+        nutrients.put(n2,a2);
+        nutrients.put(n3,a3);
         return this;
     }
 }

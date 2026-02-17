@@ -20,46 +20,46 @@ public class GTABlocks {
         REGISTRATE.creativeModeTab(()-> GTACreativeModeTabs.GTA_TAB);
     }
 
-    public static final BlockEntry<GTACropBlock> CHILL_PEPPER_SEED = cropWithSeed("chilly_pepper");
-    public static final BlockEntry<GTACropBlock> GRAPE_SEED = cropWithSeed("grape");
-    public static final BlockEntry<GTACropBlock> RAPE_SEED = cropWithSeed("rape");
-    public static final BlockEntry<GTACropBlock> TOMATO_SEED = cropWithSeed("tomato");
-
-    public static final BlockEntry<BerryBushBlock> TEST_BERRY_BUSH = REGISTRATE.block("test_berry_bush",BerryBushBlock::new)
-            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
-            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
-            .addLayer(() -> RenderType::cutout)
-            .lang("Test Berry Bush")
-            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(), block->block.attachBerryItem(GTAItems.TEST_BERRY.get()))
-            .item(BlockItem::new)
-            .model((ctx,prov)->
-                            prov.withExistingParent("item/test_berry_bush",prov.modLoc("block/test_berry_bush/stage_0/down")))
-            .build()
-            .register();
-
-    public static final BlockEntry<BerryBushBlock> LEMON_BERRY_BUSH = REGISTRATE.block("lemon_berry_bush",BerryBushBlock::new)
-            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
-            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
-            .addLayer(()->RenderType::cutout)
-            .lang("Lemon Berry Bush")
-            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block-> block.attachBerryItem(GTAItems.LEMON.get()))
-            .item(BlockItem::new)
-            .model((ctx,prov)->
-                    prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0/down".formatted(ctx.getName()))))
-            .build()
-            .register();
-
-    public static final BlockEntry<BerryBushBlock> TOMATO_BERRY_BUSH = REGISTRATE.block("tomato_berry_bush",BerryBushBlock::new)
-            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
-            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
-            .addLayer(()->RenderType::cutout)
-            .lang("Tomato Berry Bush")
-            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block-> block.attachBerryItem(GTAItems.TOMATO.get()))
-            .item(BlockItem::new)
-            .model((ctx,prov)->
-                    prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0/down".formatted(ctx.getName()))))
-            .build()
-            .register();
+//    public static final BlockEntry<GTACropBlock> CHILL_PEPPER_SEED = cropWithSeed("chilly_pepper");
+//    public static final BlockEntry<GTACropBlock> GRAPE_SEED = cropWithSeed("grape");
+//    public static final BlockEntry<GTACropBlock> RAPE_SEED = cropWithSeed("rape");
+//    public static final BlockEntry<GTACropBlock> TOMATO_SEED = cropWithSeed("tomato");
+//
+//    public static final BlockEntry<BerryBushBlock> TEST_BERRY_BUSH = REGISTRATE.block("test_berry_bush",BerryBushBlock::new)
+//            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
+//            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
+//            .addLayer(() -> RenderType::cutout)
+//            .lang("Test Berry Bush")
+//            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(), block->block.attachBerryItem(GTAItems.TEST_BERRY.get()))
+//            .item(BlockItem::new)
+//            .model((ctx,prov)->
+//                            prov.withExistingParent("item/test_berry_bush",prov.modLoc("block/test_berry_bush/stage_0/down")))
+//            .build()
+//            .register();
+//
+//    public static final BlockEntry<BerryBushBlock> LEMON_BERRY_BUSH = REGISTRATE.block("lemon_berry_bush",BerryBushBlock::new)
+//            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
+//            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
+//            .addLayer(()->RenderType::cutout)
+//            .lang("Lemon Berry Bush")
+//            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block-> block.attachBerryItem(GTAItems.LEMON.get()))
+//            .item(BlockItem::new)
+//            .model((ctx,prov)->
+//                    prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0/down".formatted(ctx.getName()))))
+//            .build()
+//            .register();
+//
+//    public static final BlockEntry<BerryBushBlock> TOMATO_BERRY_BUSH = REGISTRATE.block("tomato_berry_bush",BerryBushBlock::new)
+//            .initialProperties(()->Blocks.SWEET_BERRY_BUSH)
+//            .blockstate(GTAModels.berryBushModel("test_berry_bush"))
+//            .addLayer(()->RenderType::cutout)
+//            .lang("Tomato Berry Bush")
+//            .onRegisterAfter(ForgeRegistries.ITEMS.getRegistryKey(),block-> block.attachBerryItem(GTAItems.TOMATO.get()))
+//            .item(BlockItem::new)
+//            .model((ctx,prov)->
+//                    prov.withExistingParent("item/%s".formatted(ctx.getName()),prov.modLoc("block/%s/stage_0/down".formatted(ctx.getName()))))
+//            .build()
+//            .register();
 
     //helper
     private static BlockEntry<GTACropBlock> cropWithSeed(String cropName){

@@ -13,10 +13,10 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePrope
 
 public class LootLoader {
     public static void init(RegistrateLootTableProvider prov) {
-        addCropLootTable(prov,GTABlocks.CHILL_PEPPER_SEED.get(),GTAItems.CHILLY_PEPPER.asItem());
-        addCropLootTable(prov,GTABlocks.GRAPE_SEED.get(), GTAItems.GRAPE.asItem());
-        addCropLootTable(prov,GTABlocks.RAPE_SEED.get(), GTAItems.RAPE.asItem());
-        addCropLootTable(prov,GTABlocks.TOMATO_SEED.get(),GTAItems.TOMATO.asItem());
+//        addCropLootTable(prov,GTABlocks.CHILL_PEPPER_SEED.get(),GTAItems.CHILLY_PEPPER.asItem());
+//        addCropLootTable(prov,GTABlocks.GRAPE_SEED.get(), GTAItems.GRAPE.asItem());
+//        addCropLootTable(prov,GTABlocks.RAPE_SEED.get(), GTAItems.RAPE.asItem());
+//        addCropLootTable(prov,GTABlocks.TOMATO_SEED.get(),GTAItems.TOMATO.asItem());
     }
 
     private static void addCropLootTable(RegistrateLootTableProvider prov,GTACropBlock seedBlock, Item cropItem){

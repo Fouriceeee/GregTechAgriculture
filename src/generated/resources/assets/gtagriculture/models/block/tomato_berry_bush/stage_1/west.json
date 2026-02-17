@@ -1,6 +1,0 @@
-{
-  "parent": "gtagriculture:block/berry_bush/stage_1/west",
-  "textures": {
-    "stage_1": "gtagriculture:block/test_berry_bush/stage_1"
-  }
-}

@@ -11,7 +11,7 @@ public class GTACreativeModeTabs {
     public static RegistryEntry<CreativeModeTab> GTA_TAB = GTARegistries.REGISTRATE.defaultCreativeTab(
             GTAgriculture.MODID,
             builder -> builder.displayItems(new GTCreativeModeTabs.RegistrateDisplayItemsGenerator(GTAgriculture.MODID,GTARegistries.REGISTRATE))
-                    .icon(GTAItems.MAX_TOMATO::asStack)
+                    .icon(GTAItems.MAXIM_TOMATO::asStack)
                     .title(Component.literal("GTAgriculture"))
                     .build()
     ).register();
